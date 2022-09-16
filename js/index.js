@@ -7,32 +7,7 @@ let buyThings = [];
 let totalCard = 0;
 let countProduct = 0;
 
-//Clase y objetos.
-
-class Producto{
-    constructor(nombre, precio){
-        this._nombre = nombre;
-        this._precio = precio;
-}
-}
-
-let producto1 = new Producto('AOFLY SUNGLASSES', '20$')
-let producto2 = new Producto('AOFLY SUNGLASSES', '35$')
-let producto3 = new Producto('AOFLY SUNGLASSES', '15.50$')
-let producto4 = new Producto('AOFLY SUNGLASSES', '20.20$')
-let producto5 = new Producto('AOFLY SUNGLASSES', '19$')
-let producto6 = new Producto('AOFLY SUNGLASSES', '45$')
-let producto7 = new Producto('AOFLY SUNGLASSES', '23.99$')
-let producto8 = new Producto('AOFLY SUNGLASSES', '50$')
-let producto9 = new Producto('AOFLY SUNGLASSES', '16$')
-let producto10 = new Producto('AOFLY SUNGLASSES', '17.50$')
-let producto11 = new Producto('AOFLY SUNGLASSES', '45$')
-
-let productos=[
-    productos.push(producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11)
-]
-
-//Functions
+//Functions. Agrego el EVENTO para añadir y eliminar productos del carrito.
 loadEventListenrs();
 function loadEventListenrs(){
     allContainerCart.addEventListener('click', addProduct);
@@ -72,7 +47,7 @@ function deleteProduct(e) {
 }
 
 function readTheContent(product){
-    const infoProducto = {
+    const infoProduct = {
         image: product.querySelector('div img').src,
         title: product.querySelector('.title').textContent,
         price: product.querySelector('div p span').textContent,
@@ -80,13 +55,13 @@ function readTheContent(product){
         amount: 1
     }
 
-    totalCard = parseFloat(totalCard) + parseFloat(infoProducto.price);
+    totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
     totalCard = totalCard.toFixed(2);
 
-    const exist = buyThings.some(product => product.id === infoProducto.id);
+    const exist = buyThings.some(product => product.id === infoProduct.id);
     if (exist) {
         const pro = buyThings.map(product => {
-            if (product.id === infoProducto.id) {
+            if (product.id === infoProduct.id) {
                 product.amount++;
                 return product;
             } else {
@@ -95,7 +70,7 @@ function readTheContent(product){
         });
         buyThings = [...pro];
     } else {
-        buyThings = [...buyThings, infoProducto]
+        buyThings = [...buyThings, infoProduct]
         countProduct++;
     }
     loadHtml();
@@ -128,3 +103,31 @@ function loadHtml(){
  function clearHtml(){
     containerBuyCart.innerHTML = '';
  }
+
+ //Clase y objetos.
+
+ //Creo la clase Producto, con las propiedades nombre y precio.
+class Producto{
+    constructor(nombre, precio){
+        this._nombre = nombre;
+        this._precio = precio;
+}
+}
+
+//Creo los objetos, con sus respectivas propiedades.
+let producto1 = new Producto('AOFLY SUNGLASSES', '20$')
+let producto2 = new Producto('AOFLY SUNGLASSES', '35$')
+let producto3 = new Producto('AOFLY SUNGLASSES', '15.50$')
+let producto4 = new Producto('AOFLY SUNGLASSES', '20.20$')
+let producto5 = new Producto('AOFLY SUNGLASSES', '19$')
+let producto6 = new Producto('AOFLY SUNGLASSES', '45$')
+let producto7 = new Producto('AOFLY SUNGLASSES', '23.99$')
+let producto8 = new Producto('AOFLY SUNGLASSES', '50$')
+let producto9 = new Producto('AOFLY SUNGLASSES', '16$')
+let producto10 = new Producto('AOFLY SUNGLASSES', '17.50$')
+let producto11 = new Producto('AOFLY SUNGLASSES', '45$')
+
+//Agrego un array y pusheo los productos dentro de éste.
+let productos=[
+    productos.push(producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11)
+]
