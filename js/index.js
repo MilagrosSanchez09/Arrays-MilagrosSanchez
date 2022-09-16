@@ -7,6 +7,31 @@ let buyThings = [];
 let totalCard = 0;
 let countProduct = 0;
 
+//Clase y objetos.
+
+class Producto{
+    constructor(nombre, precio){
+        this._nombre = nombre;
+        this._precio = precio;
+}
+}
+
+let producto1 = new Producto('AOFLY SUNGLASSES', '20$')
+let producto2 = new Producto('AOFLY SUNGLASSES', '35$')
+let producto3 = new Producto('AOFLY SUNGLASSES', '15.50$')
+let producto4 = new Producto('AOFLY SUNGLASSES', '20.20$')
+let producto5 = new Producto('AOFLY SUNGLASSES', '19$')
+let producto6 = new Producto('AOFLY SUNGLASSES', '45$')
+let producto7 = new Producto('AOFLY SUNGLASSES', '23.99$')
+let producto8 = new Producto('AOFLY SUNGLASSES', '50$')
+let producto9 = new Producto('AOFLY SUNGLASSES', '16$')
+let producto10 = new Producto('AOFLY SUNGLASSES', '17.50$')
+let producto11 = new Producto('AOFLY SUNGLASSES', '45$')
+
+let productos=[
+    productos.push(producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11)
+]
+
 //Functions
 loadEventListenrs();
 function loadEventListenrs(){
