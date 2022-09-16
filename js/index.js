@@ -28,9 +28,7 @@ let producto9 = new Producto('AOFLY SUNGLASSES', '16$')
 let producto10 = new Producto('AOFLY SUNGLASSES', '17.50$')
 let producto11 = new Producto('AOFLY SUNGLASSES', '45$')
 
-let productos=[
-    productos.push(producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11)
-]
+let productos=[producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8, producto9, producto10, producto11]
 
 //Functions
 loadEventListenrs();
